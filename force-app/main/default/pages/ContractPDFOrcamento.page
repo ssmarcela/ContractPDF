@@ -1,0 +1,53 @@
+<apex:page standardController="Opportunity" extensions="ContractPDFController" renderAs="pdf">
+    <html>
+        <body>
+            <div class="header">
+                <h1>Aerolines</h1>
+                <p>Rua Alegre, 123 - Cidade Brasileira</p>
+                <p>Contato: (11) 0000-0000</p>
+            </div>
+
+            <div>
+                <div class="section-title">DADOS PESSOAIS</div>
+                <table>
+                    <tr>
+                        <td><strong>Cliente:</strong> {!contract.Account.Name}</td>
+                        <td><strong>E-mail:</strong> {!contract.Account.Email__c}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Telefone:</strong> {!contract.Account.Phone}</td>
+                        <td><strong>Cidade:</strong> {!contract.Account.BillingCity}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                <div class="section-title">ORÇAMENTO</div>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Descrição</th>
+                        <th>Quant.</th>
+                        <th>Valor Unitário</th>
+                        <th>Valor Parcial</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>{!contract.Description}</td>
+                        <td>R$ {!contract.Valor_Total__c}</td>
+                        <td>R$ {!contract.Valor_de_Desconto__c}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><strong>Valor Total</strong></td>
+                        <td><strong>R$ {!contract.Valor_Total_com_Desconto__c}</strong></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer">
+                Documento gerado automaticamente pela plataforma Salesforce.
+            </div>
+
+        </body>
+    </html>
+</apex:page>

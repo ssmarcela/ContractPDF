@@ -1,0 +1,18 @@
+{
+  "status": 0,
+  "result": [
+    {
+      "createdById": "005aj00000CjCanAAF",
+      "createdByName": "Marcela Santos",
+      "createdDate": "2025-01-22T20:43:14.000Z",
+      "fileName": "lwc/formularioSimulador",
+      "fullName": "formularioSimulador",
+      "id": "0Rbaj0000015s5dCAA",
+      "lastModifiedById": "005aj00000CjCanAAF",
+      "lastModifiedByName": "Marcela Santos",
+      "lastModifiedDate": "2025-01-22T22:30:41.000Z",
+      "manageableState": "unmanaged",
+      "type": "LightningComponentBundle"
+    }
+  ]
+}

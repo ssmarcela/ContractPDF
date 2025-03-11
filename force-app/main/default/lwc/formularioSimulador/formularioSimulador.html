@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Simulador de Consumo de Energia">  
+        <div class="slds-p-left_small slds-p-right_small">
+        <lightning-input
+            label="Aparelho"
+            value={aparelho}
+            onchange={handleInputChange}
+            data-id="aparelho">
+        </lightning-input>
+        <lightning-input
+            type="number"
+            label="Potência (Watts)"
+            value={potencia}
+            onchange={handleInputChange}
+            data-id="potencia">
+        </lightning-input>
+        <lightning-input
+            type="number"
+            label="Horas de Uso por Dia"
+            value={horas}
+            onchange={handleInputChange}
+            data-id="horas">
+        </lightning-input>
+        <lightning-combobox
+            label="Tarifa de Energia (R$/kWh)"
+            value={tarifa}
+            placeholder="Selecione a tarifa"
+            options={tarifas}
+            onchange={handleInputChange}
+            data-id="tarifa">
+        </lightning-combobox>
+        <div class="slds-p-top_small">
+        <lightning-button label="Calcular" onclick={calcularEnergia}></lightning-button>
+    </div>
+    <div class="slds-p-vertical_medium">
+        <template if:true={resultado}>
+            <p>Consumo Mensal: {resultado.consumoMensal} kWh</p>
+            <p>Custo Estimado: R$ {resultado.custoEstimado}</p>
+        </template>
+        </div>
+        </div>
+    </lightning-card>
+</template>

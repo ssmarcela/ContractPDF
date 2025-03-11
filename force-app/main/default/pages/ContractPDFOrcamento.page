@@ -1,0 +1,46 @@
+<apex:page standardController="Opportunity" extensions="ContractPDFController" renderAs="pdf">
+    <div style="text-align: center; font-family: Helvetica, Arial, sans-serif;">
+        <h1 style="color: rgb(3, 3, 54); font-size: 20px;">Orçamento de Reparos</h1>
+        <p>Rua Alegre, 123 - Cidade Brasileira</p>
+        <p style="padding: 5px;">Contato: (11) 0000-0000</p>
+    </div>
+    <div>
+        <h2 style="font-size: 16px; border-bottom: 1px solid rgb(155, 155, 155);">Dados Pessoais do Cliente</h2>
+        <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+            <tr>
+                <td style="padding: 5px;"><strong>Cliente:</strong> {!contract.Account.Name}</td>
+                <td style="padding: 5px;"><strong>E-mail:</strong> {!contract.Account.Email__c}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"><strong>Telefone:</strong> {!contract.Account.Phone}</td>
+                <td style="padding: 5px;"><strong>Cidade:</strong> {!contract.Account.BillingCity}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h2 style="font-size: 16px; border-bottom: 1px solid rgb(155, 155, 155);">Orçamento</h2>
+        <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+            <tr>
+                <th style="border: 1px solid black; padding: 5px; text-align: left;">Item</th>
+                <th style="border: 1px solid black; padding: 5px; text-align: left;">Descrição</th>
+                <th style="border: 1px solid black; padding: 5px; text-align: left;">Valor Unitário</th>
+                <th style="border: 1px solid black; padding: 5px; text-align: left;">Valor Parcial</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black; padding: 5px;">1</td>
+                <td style="border: 1px solid black; padding: 5px;">{!contract.Description}</td>
+                <td style="border: 1px solid black; padding: 5px;">R$ {!contract.Valor_Total__c}</td>
+                <td style="border: 1px solid black; padding: 5px;">R$ {!contract.Valor_de_Desconto__c}</td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: right; padding: 5px;"><strong>Valor Total</strong></td>
+                <td style="border: 1px solid black; padding: 5px;"><strong>R$ {!contract.Valor_Total_com_Desconto__c}</strong></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="color: rgb(7, 7, 7); margin-top: 600px; text-align: center; font-size: 12px;">
+        Documento gerado automaticamente pela plataforma Salesforce.
+    </div>
+</apex:page>
